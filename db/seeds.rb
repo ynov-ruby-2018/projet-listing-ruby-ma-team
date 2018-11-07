@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+#
+
+category = Category.create({name: 'Technology'})
+Category.create({name: 'Food'})
+
+
+announcement = Announcement.create(
+    {
+        title: "Titre de l'annonce 1",
+        description: "lorem ipsum dolor sit amet",
+        category_id: category.id,
+        picture:"http://placehold.it/500x500",
+        price: 200.0
+    })
+
+Message.create([
+    {
+        content: 'salut',
+        announcement_id: announcement.id
+    }])
