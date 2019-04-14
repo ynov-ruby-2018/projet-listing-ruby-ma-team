@@ -1,0 +1,12 @@
+version: '3'
+services:
+#  database:
+#    image: postgres
+#    volumes:
+#      - ./tmp/db:/var/lib/postgresql/data
+  ruby:
+    build: .
+    volumes:
+      - .:/data/app
+    ports:
+      - 3000:3000
