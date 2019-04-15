@@ -39,6 +39,8 @@ fr:
     search:
       input: "Que recherchez-vous ?"
       button: "Rechercher"
+  announcements:
+    contact: "Contacter le vendeur"
   login:
     title: "Connexion"
     forgot: "Mot de passe oublié ?"

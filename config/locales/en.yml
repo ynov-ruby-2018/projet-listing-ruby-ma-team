@@ -39,6 +39,8 @@ en:
     search:
       input: "What are you searching for ?"
       button: "Search"
+  announcements:
+    contact: "Contact seller"
   login:
     title: "Log in"
     forgot: "Forgot your password ?"
