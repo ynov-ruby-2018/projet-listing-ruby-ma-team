@@ -5,13 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   </head>
   <body>
-    <section class="hero is-fullheight <%= controller_name %>">
+    <section class="<%= 'hero' if controller_name == 'home' %> is-fullheight <%= controller_name %>">
       <div class="hero-head">
         <nav class="navbar" role="navigation" aria-label="main navigation">
           <div class="container">
@@ -44,7 +44,7 @@
                   <div class="buttons">
 
                     <% if user_signed_in? %>
-                      <a class="button is-light" href="<%= url_for(action: 'edit', controller: 'users/registrations') %>">
+                      <a class="button is-light" href="<%= url_for(action: 'index', controller: 'account/profile') %>">
                         <span class="icon"><i class="fa fa-user"></i></span> <span><%= current_user.firstname || current_user.email %></span>
                       </a>
                       <a class="button is-danger" href="<%= url_for(action: 'destroy', controller: 'devise/sessions') %>">
