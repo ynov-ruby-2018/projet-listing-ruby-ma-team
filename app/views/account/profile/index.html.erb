@@ -1,0 +1,46 @@
+<div class="columns">
+  <div class="column">
+    <%= form_for(@user, :url => {:action => "update_user"}) do |f| %>
+      <div class="field">
+        <%= f.label :lastname, "NOM", class: 'label' %>
+        <div class="control">
+          <%= f.text_field :lastname, :autocomplete => "off", class: 'input' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :firstname, "Prénom", class: 'label' %>
+        <div class="control">
+          <%= f.text_field :firstname, :autocomplete => "off", class: 'input' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Prénom", class: 'label' %>
+        <div class="control">
+          <%= f.email_field :email, class: 'input' %>
+        </div>
+      </div>
+      <div class="control">
+        <%= f.submit('Save', class: 'button is-link') %>
+      </div>
+    <% end %>
+  </div>
+  <div class="column">
+    <%= form_for(@user, :url => {:action => "update_password"}) do |f| %>
+      <div class="field">
+        <%= f.label :password, "Password", class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password, :autocomplete => "off", class: 'input' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password_confirmation, class: 'input' %>
+        </div>
+      </div>
+      <div class="control">
+        <%= f.submit('Change password', class: 'button is-link') %>
+      </div>
+    <% end %>
+  </div>
+</div>
