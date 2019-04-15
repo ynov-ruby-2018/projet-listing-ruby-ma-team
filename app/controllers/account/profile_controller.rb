@@ -8,7 +8,8 @@ class Account::ProfileController < Account::AccountController
     if @user.update(user_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
-      render "index"
+      flash[:notice] = t('devise.registrations.updated')
+      redirect_to action: "index"
     end
   end
 
@@ -18,7 +19,8 @@ class Account::ProfileController < Account::AccountController
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
     else
-      render "index"
+      flash[:notice] = t('devise.passwords.updated_not_active')
+      redirect_to action: "index"
     end
   end
 
