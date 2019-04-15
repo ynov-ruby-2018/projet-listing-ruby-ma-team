@@ -42,9 +42,20 @@
 
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a class="button is-light" href="<%= url_for(action: 'new', controller: 'devise/sessions') %>">
-                      <span class="icon"><i class="fa fa-user"></i></span> <span><%= t('navbar.login') %></span>
-                    </a>
+
+                    <% if user_signed_in? %>
+                      <a class="button is-light" href="<%= url_for(action: 'edit', controller: 'users/registrations') %>">
+                        <span class="icon"><i class="fa fa-user"></i></span> <span><%= current_user.firstname || current_user.email %></span>
+                      </a>
+                      <a class="button is-danger" href="<%= url_for(action: 'destroy', controller: 'devise/sessions') %>">
+                        <span class="icon"><i class="fa fa-power-off"></i></span>
+                      </a>
+                    <% else %>
+                      <a class="button is-light" href="<%= url_for(action: 'new', controller: 'devise/sessions') %>">
+                        <span class="icon"><i class="fa fa-user"></i></span> <span><%= t('navbar.login') %></span>
+                      </a>
+                    <% end %>
+
                     <a class="button is-primary">
                       <span class="icon"><i class="fa fa-plus"></i></span> <span><%= t('navbar.create') %></span>
                     </a>
@@ -58,6 +69,17 @@
 
       <div class="hero-body">
         <div class="container">
+
+          <% flash.each do |type, msg| %>
+            <% if type == "notice" %>
+              <div class="notification is-success"><%= msg %></div>
+            <% elsif type == "alert" %>
+              <div class="notification is-danger"><%= msg %></div>
+            <% else %>
+              <div class='notification is-primary'><%= msg %></div>
+            <% end %>
+          <% end %>
+
           <%= yield %>
         </div>
       </div>

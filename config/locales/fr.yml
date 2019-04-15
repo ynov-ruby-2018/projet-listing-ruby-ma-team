@@ -39,3 +39,13 @@ fr:
     search:
       input: "Que recherchez-vous ?"
       button: "Rechercher"
+  login:
+    title: "Connexion"
+    forgot: "Mot de passe oublié ?"
+  register:
+    title: "Créer un compte"
+  profile:
+    title: "Mon profil"
+    password: "(laissez vide pour ne pas le changer)"
+    characters: "caractères"
+    confirm: "(nous en avons besoin pour valider vos changements)"

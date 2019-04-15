@@ -39,3 +39,13 @@ en:
     search:
       input: "What are you searching for ?"
       button: "Search"
+  login:
+    title: "Log in"
+    forgot: "Forgot your password ?"
+  register:
+    title: "Sign up"
+  profile:
+    title: "My profile"
+    password: "(leave blank if you don't want to change it)"
+    characters: "characters"
+    confirm: "(we need your current password to confirm your changes)"

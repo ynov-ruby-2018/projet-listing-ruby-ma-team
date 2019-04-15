@@ -62,3 +62,21 @@ fr:
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+  activerecord:
+    attributes:
+      user:
+        password: "Mot de passe"
+        email: "Email"
+        password_confirmation: "Confirmation du mot de passe"
+        current_password: "Mot de passe actuel"
+        lastname: "Nom"
+        firstname: "Prénom"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "n'a pas été défini."
+              taken: "est déjà enregistré."
+            password:
+              blank: "n'a pas été défini."
