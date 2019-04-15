@@ -15,5 +15,10 @@ module ProjetListingRuby
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Locales
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+    I18n.available_locales = [:en, :fr]
+    I18n.default_locale = :en
   end
 end
