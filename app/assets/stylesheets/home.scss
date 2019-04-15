@@ -8,7 +8,7 @@
   }
 
   .hero-body {
-    background-image: image-url("home_bg.jpg");
+    background-image: url(asset-path("home_bg.jpg"));
     background-size: cover;
   }
 }
