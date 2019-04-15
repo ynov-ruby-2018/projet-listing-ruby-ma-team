@@ -29,25 +29,25 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   navbar:
-    home: "Home"
-    login: "Log in"
-    create: "Create my listing"
+    home: "Accueil"
+    login: "Connexion"
+    create: "Créer mon listing"
   home:
-    welcome: "You're going to find..."
+    welcome: "Vous allez trouver..."
     search:
-      input: "What are you searching for ?"
-      button: "Search"
+      input: "Que recherchez-vous ?"
+      button: "Rechercher"
   announcements:
-    contact: "Contact seller"
+    contact: "Contacter le vendeur"
   login:
-    title: "Log in"
-    forgot: "Forgot your password ?"
+    title: "Connexion"
+    forgot: "Mot de passe oublié ?"
   register:
-    title: "Sign up"
+    title: "Créer un compte"
   profile:
-    title: "My profile"
-    password: "(leave blank if you don't want to change it)"
-    characters: "characters"
-    confirm: "(we need your current password to confirm your changes)"
+    title: "Mon profil"
+    password: "(laissez vide pour ne pas le changer)"
+    characters: "caractères"
+    confirm: "(nous en avons besoin pour valider vos changements)"

@@ -6,15 +6,14 @@
 
     <div class="field is-grouped">
       <p class="control is-expanded has-icons-left">
-
-      <input name="search" class="input is-medium" type="text" autofocus placeholder="What are you searching for ?">
+        <input name='search' class="input is-medium" type="text" autofocus placeholder="<%= t('home.search.input') %>">
         <span class="icon is-small is-left">
           <i class="fa fa-search"></i>
         </span>
       </p>
 
       <p class="control">
-        <%= submit_tag("Search", class: 'button is-medium is-primary') %>
+        <%= submit_tag(t('home.search.button'), class: 'button is-medium is-primary') %>
       </p>
     </div>
         <% end %>
