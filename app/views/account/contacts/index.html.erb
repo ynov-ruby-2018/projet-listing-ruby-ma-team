@@ -1,0 +1,27 @@
+<div>
+  test
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Image</th>
+    <th>Prix</th>
+    <th>Date</th>
+    <th>Message</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @contacts.each do |message| %>
+    <tr>
+      <td>
+        <img src="<%= message.announcement.picture %>"/>
+      </td>
+      <td><%= message.announcement.price %></td>
+      <td><%= message.created_at %></td>
+      <td><%= message.content %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
