@@ -29,13 +29,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   navbar:
-    home: "Home"
-    login: "Log in"
-    create: "Create my listing"
+    home: "Accueil"
+    login: "Connexion"
+    create: "Créer mon listing"
   home:
-    welcome: "You're going to find..."
+    welcome: "Vous allez trouver..."
     search:
-      input: "What are you searching for ?"
-      button: "Search"
+      input: "Que recherchez-vous ?"
+      button: "Rechercher"
