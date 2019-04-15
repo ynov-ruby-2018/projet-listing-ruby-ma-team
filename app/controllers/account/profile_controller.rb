@@ -1,27 +1,14 @@
-class AccountController < ApplicationController
-  def profile
+class Account::ProfileController < Account::AccountController
+  def index
     @user = current_user
-
   end
-  def contacts
-    @user = current_user
-    @contacts = Message.joins(:announcement).where(announcements: { user:  @user })
-
-  end
-  def messages
-    @user = current_user
-    @messages = Message.where(user: @user)
-  end
-
-  before_action :authenticate_user!
-
 
   def update_user
     @user = current_user
     if @user.update(user_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
-      render "profile"
+      render "index"
     end
   end
 
@@ -30,9 +17,8 @@ class AccountController < ApplicationController
     if @user.update(user_password_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
-      redirect_to root_path
     else
-      render "profile"
+      render "index"
     end
   end
 

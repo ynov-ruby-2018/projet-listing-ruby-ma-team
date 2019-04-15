@@ -1,6 +1,6 @@
 class CreateMessages < ActiveRecord::Migration[5.2]
   def change
-    create_table :messages do |t|
+    create_table :index do |t|
       t.text :content
 
       t.timestamps
