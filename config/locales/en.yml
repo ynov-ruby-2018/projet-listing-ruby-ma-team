@@ -3,6 +3,9 @@ en:
     home: "Home"
     login: "Log in"
     create: "Create my listing"
+    profile: "My profile"
+    messages: "My messages"
+    contacts: "My contacts"
   home:
     welcome: "You're going to find..."
     search:
