@@ -1,0 +1,18 @@
+<%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+  <div class="field">
+    <%= f.label :password, "Password", class: 'label' %>
+    <div class="control">
+      <%= f.password_field :password, :autocomplete => "off" , class: 'input' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, class: 'label' %>
+    <div class="control">
+    <%= f.password_field :password_confirmation, class: 'input' %>
+    </div>
+  </div>
+  <div class="control">
+    <%= f.submit(class: 'button is-link') %>
+  </div>
+<% end %>
+<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
