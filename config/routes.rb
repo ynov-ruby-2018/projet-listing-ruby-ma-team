@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   root to: 'home#index'
-  get 'accounts/profile', to: 'account#profile'
-  get 'accounts/index', to: 'account#index'
-  get 'accounts/contacts', to: 'account#contacts'
+  get 'listings', to: 'announcements#index'
   namespace :account do
     resources :contacts
     resources :messages
