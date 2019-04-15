@@ -21,8 +21,19 @@ announcement = Announcement.create(
         price: 200.0
     })
 
-Message.create([
+user = User.create!(
+               {
+                   firstname: 'Jules',
+                   lastname: 'LAURENT',
+                   email: 'jules.laurent@outlook.com',
+                   password: 'p@ssw0rd',
+                   password_confirmation: 'p@ssw0rd'
+               }
+)
+
+Message.create(
     {
         content: 'salut',
-        announcement_id: announcement.id
-    }])
+        announcement_id: announcement.id,
+        user_id: user.id
+    })

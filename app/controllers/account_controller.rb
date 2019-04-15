@@ -7,7 +7,8 @@ class AccountController < ApplicationController
 
   end
   def messages
-
+    @user = current_user
+    @messages = Message.where(user: @user)
   end
 
   before_action :authenticate_user!
