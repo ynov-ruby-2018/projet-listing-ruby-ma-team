@@ -5,14 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   </head>
-
   <body>
-
-    <section class="hero is-fullheight <%= controller_name %>">
+    <section class="<%= 'hero' if controller_name == 'home' %> is-fullheight <%= controller_name %>">
       <div class="hero-head">
         <nav class="navbar" role="navigation" aria-label="main navigation">
           <div class="container">
@@ -24,7 +23,7 @@
 
             <div id="navbarMain" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item" href="<%= root_path %>">Home</a>
+                <a class="navbar-item" href="<%= root_path %>"><%= t('navbar.home') %></a>
                 <a class="navbar-item" href="#">Listings</a>
               </div>
 
@@ -32,22 +31,33 @@
                 <div class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link is-arrowless">
                     <span class="icon"><i class="fa fa-globe"></i></span>
-                    <span>EN</span>
+                    <span><%= I18n.locale.upcase %></span>
                   </a>
 
                   <div class="navbar-dropdown">
-                    <a class="navbar-item">English</a>
-                    <a class="navbar-item">French</a>
+                    <%= link_to "English", { :locale => '' }, :class => "navbar-item" %>
+                    <%= link_to "Français", { :locale => 'fr' }, :class => "navbar-item" %>
                   </div>
                 </div>
 
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a class="button is-light">
-                      <span class="icon"><i class="fa fa-user"></i></span> <span>Log in</span>
-                    </a>
+
+                    <% if user_signed_in? %>
+                      <a class="button is-light" href="<%= url_for(action: 'index', controller: 'account/profile') %>">
+                        <span class="icon"><i class="fa fa-user"></i></span> <span><%= current_user.firstname || current_user.email %></span>
+                      </a>
+                      <a class="button is-danger" href="<%= url_for(action: 'destroy', controller: 'devise/sessions') %>">
+                        <span class="icon"><i class="fa fa-power-off"></i></span>
+                      </a>
+                    <% else %>
+                      <a class="button is-light" href="<%= url_for(action: 'new', controller: 'devise/sessions') %>">
+                        <span class="icon"><i class="fa fa-user"></i></span> <span><%= t('navbar.login') %></span>
+                      </a>
+                    <% end %>
+
                     <a class="button is-primary">
-                      <span class="icon"><i class="fa fa-plus"></i></span> <span>Create my listing</span>
+                      <span class="icon"><i class="fa fa-plus"></i></span> <span><%= t('navbar.create') %></span>
                     </a>
                   </div>
                 </div>
@@ -59,7 +69,19 @@
 
       <div class="hero-body">
         <div class="container">
-          <%= yield %>
+
+          <% flash.each do |type, msg| %>
+            <% if type == "notice" %>
+              <div class="notification is-success"><%= msg %></div>
+            <% elsif type == "alert" %>
+              <div class="notification is-danger"><%= msg %></div>
+            <% else %>
+              <div class='notification is-primary'><%= msg %></div>
+            <% end %>
+          <% end %>
+
+          <%= content_for?(:content) ? yield(:content) : yield %>
+
         </div>
       </div>
 
@@ -67,7 +89,7 @@
         <footer class="footer">
           <div class="content has-text-centered">
             <p>
-              <strong>Ruby Listing</strong> made with <span class="icon"><i class="fas fa-coffee"></i></span> by
+              <strong>Ruby Listing</strong> made with <span class="icon"><i class="fa fa-coffee"></i></span> by
               <a href="https://github.com/JulesAaelio" target="_blank">Jules LAURENT</a> &
               <a href="https://github.com/h3r0xfr" target="_blank">Adrien CABAUD</a>
             </p>

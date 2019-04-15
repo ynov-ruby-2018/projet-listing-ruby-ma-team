@@ -1,0 +1,27 @@
+<% @announcements.each do |item| %>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="<%= item.picture %>">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-4"><%= item.title %></p>
+          <p class="subtitle is-6">
+            <time datetime="2016-1-1"><%= item.created_at.strftime(("%F %R")) %></time>
+            <span class="tag"><%= item.category.name %></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="content">
+        <%= item.description %>
+        <div class="price" ><%= item.price %> €</div>
+        <br>
+        <button class="button is-primary"><%= t('announcements.contact') %></button>
+      </div>
+    </div>
+  </div>
+<% end %>
