@@ -9,7 +9,7 @@
 #
 
 category = Category.create({name: 'Technology'})
-Category.create({name: 'Food'})
+category_2 = Category.create({name: 'Food'})
 
 
 
@@ -43,6 +43,16 @@ announcement = Announcement.create(
         picture:"http://placehold.it/500x500",
         price: 200.0,
         user_id: jules.id
+    })
+
+Announcement.create(
+    {
+        title: "Titre de l'annonce 2",
+        description: "lalalalalallat",
+        category_id: category_2.id,
+        picture:"http://placehold.it/500x500",
+        price: 200.0,
+        user_id: adrien.id
     })
 
 
