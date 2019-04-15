@@ -1,9 +1,9 @@
 <% content_for :content do %>
   <div class="tabs">
     <ul>
-      <li class="<%= 'is-active' if controller.action_name == 'index' %>"><a href="profile">Mes messages</a></li>
-      <li><a href="contacts">Mes contacts</a></li>
-      <li><a href="messages">Mon profil</a></li>
+      <li class="<%= 'is-active' if controller.action_name == 'index' %>"><a href="./messages">Mes messages</a></li>
+      <li><a href="./contacts">Mes contacts</a></li>
+      <li><a href="./profile">Mon profil</a></li>
     </ul>
   </div>
   <%= yield %>
