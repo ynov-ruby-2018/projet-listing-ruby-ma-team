@@ -1,2 +1,0 @@
-module Account::ContactsHelper
-end

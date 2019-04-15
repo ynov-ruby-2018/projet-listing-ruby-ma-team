@@ -9,31 +9,8 @@
 #
 
 category = Category.create({name: 'Technology'})
-category_2 = Category.create({name: 'Food'})
+Category.create({name: 'Food'})
 
-
-
-
-
-adrien = User.create!(
-               {
-                   firstname: 'Adrien',
-                   lastname: 'CABAUD',
-                   email: 'adrien.cabaud@ynov.com',
-                   password: 'p@ssw0rd',
-                   password_confirmation: 'p@ssw0rd'
-               }
-)
-
-jules = User.create!(
-    {
-        firstname: 'Jules',
-        lastname: 'LAURENT',
-        email: 'jules.laurent@outlook.com',
-        password: 'p@ssw0rd',
-        password_confirmation: 'p@ssw0rd'
-    }
-)
 
 announcement = Announcement.create(
     {
@@ -41,24 +18,11 @@ announcement = Announcement.create(
         description: "lorem ipsum dolor sit amet",
         category_id: category.id,
         picture:"http://placehold.it/500x500",
-        price: 200.0,
-        user_id: jules.id
+        price: 200.0
     })
 
-Announcement.create(
-    {
-        title: "Titre de l'annonce 2",
-        description: "lalalalalallat",
-        category_id: category_2.id,
-        picture:"http://placehold.it/500x500",
-        price: 200.0,
-        user_id: adrien.id
-    })
-
-
-Message.create(
+Message.create([
     {
         content: 'salut',
-        announcement_id: announcement.id,
-        user_id: adrien.id
-    })
+        announcement_id: announcement.id
+    }])
