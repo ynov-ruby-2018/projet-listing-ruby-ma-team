@@ -5,6 +5,7 @@ class AnnouncementsController < ApplicationController
 
   def new
     @announcement = Announcement.new
+    @categories = Category.all
   end
 
   before_action :authenticate_user!
@@ -14,23 +15,25 @@ class AnnouncementsController < ApplicationController
 
     # Handle file upload.
     uploaded_io = params[:announcement][:picture]
-    extension = uploaded_io.original_filename.split.last
-    relative_filemane = "images/#{Random.new.rand(0..100000000000)}-#{Date.new}.#{extension}"
-    filename = Rails.root.join('public',relative_filemane)
-    File.open(filename, 'wb') do |file|
-      file.write(uploaded_io.read)
+    if(uploaded_io != nil)
+      extension = uploaded_io.original_filename.split.last
+      relative_filemane = "images/#{Random.new.rand(0..100000000000)}-#{Date.new}.#{extension}"
+      filename = Rails.root.join('public',relative_filemane)
+      File.open(filename, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      announcement.picture = "/#{relative_filemane}"
     end
 
-    # Add missing fields.
-    announcement.picture = "/#{relative_filemane}"
     announcement.user = current_user
-    announcement.category_id = 1
 
     # And save
     announcement.save!
+    redirect_to announcements_path
   end
 
   def announcement_params
-    params.require(:announcement).permit(:title,:description,:price)
+    params.require(:announcement).permit(:title,:description,:price,:category_id)
   end
 end

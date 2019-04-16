@@ -19,10 +19,22 @@
     </div>
   </div>
   <div class="field">
+    <%= f.label :category_id %>
+    <div class="select">
+      <%= f.select(:category_id) do %>
+        <% @categories.each do |c| -%>
+          <%= content_tag(:option, c.name, value: c.id) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="field">
     <div class="control">
       <%= f.file_field :picture %>
     </div>
   </div>
+
 
   <%= f.submit "Create", class: 'button is-primary'%>
 <% end %>
