@@ -1,4 +1,6 @@
 class AnnouncementsController < ApplicationController
+  before_action :authenticate_user!, only: :create
+
   def index
     @announcements = Announcement.my_search(params[:search],params[:category_id]);
   end
@@ -7,8 +9,6 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.new
     @categories = Category.all
   end
-
-  before_action :authenticate_user!
 
   def create
     announcement = Announcement.new(announcement_params)
