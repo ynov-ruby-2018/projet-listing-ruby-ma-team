@@ -1,0 +1,16 @@
+# test/integration/api/v1/auth_test.rb
+
+require 'test_helper'
+
+feature "Auth" do
+
+  it "returns a token if i'm logged in" do
+    post api_v1_auth_path, {
+        email: '',
+        password: ''
+    }
+
+    assert_equal 200, last_response.status
+  end
+
+end
