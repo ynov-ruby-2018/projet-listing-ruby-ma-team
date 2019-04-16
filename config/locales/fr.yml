@@ -10,6 +10,13 @@ fr:
       button: "Rechercher"
   announcements:
     contact: "Contacter le vendeur"
+  announcements_new:
+    title: "Titre de l'annonce"
+    description: "Description"
+    image: "Illustration"
+    category: "Catégorie"
+    price: "Prix"
+
   login:
     title: "Connexion"
     forgot: "Mot de passe oublié ?"

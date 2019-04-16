@@ -10,6 +10,12 @@ en:
       button: "Search"
   announcements:
     contact: "Contact seller"
+  announcements_new:
+    title: "Announcement title"
+    description : "Description"
+    image: "Illustration"
+    category: "Category"
+    price: "Price"
   login:
     title: "Log in"
     forgot: "Forgot your password ?"

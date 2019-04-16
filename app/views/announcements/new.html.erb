@@ -7,19 +7,19 @@
     </div>
   </div>
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :description, t('announcements_new.description') %>
     <div class="control">
       <%= f.text_area :description, class: 'input' %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :price %>
+    <%= f.label :price, t('announcements_new.price') %>
     <div class="control">
       <%= f.number_field :price , class: 'input' %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :category_id %>
+    <%= f.label :category_id , t('announcements_new.category')%>
     <div class="select">
       <%= f.select(:category_id) do %>
         <% @categories.each do |c| -%>
@@ -30,13 +30,14 @@
   </div>
 
   <div class="field">
+    <%= f.label :picture, t('announcements_new.image') %>
     <div class="control">
       <%= f.file_field :picture %>
     </div>
   </div>
 
 
-  <%= f.submit "Create", class: 'button is-primary'%>
+  <%= f.submit t('navbar.create'), class: 'button is-primary'%>
 <% end %>
 
 
