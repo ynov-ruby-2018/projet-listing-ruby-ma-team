@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|fr/ do
     devise_for :users, :controllers => { registrations: 'users/registrations' }
     root to: 'home#index'
-    get 'announcements', to: 'announcements#index'
+    resources :announcements
+    # get 'announcements', to: 'announcements#index'
+    # get 'announcements/new', to: 'announcements#new'
+    # get 'announcements/create', to: 'announcements#new'
     namespace :account do
       resources :contacts
       resources :messages

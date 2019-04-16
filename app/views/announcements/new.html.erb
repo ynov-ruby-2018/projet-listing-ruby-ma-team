@@ -1,0 +1,36 @@
+<%= form_for @announcement, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <div class="control">
+      <%= f.text_field :title , class: 'input'%>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <div class="control">
+      <%= f.text_area :description, class: 'input' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <div class="control">
+      <%= f.number_field :price , class: 'input' %>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <%= f.file_field :picture %>
+    </div>
+  </div>
+
+  <%= f.submit "Create", class: 'button is-primary'%>
+<% end %>
+
+
+<!--<div class="field">-->
+<!--  <label class="label">Name</label>-->
+<!--  <div class="control">-->
+<!--    <input class="input" type="text" placeholder="Text input">-->
+<!--  </div>-->
+<!--</div>-->

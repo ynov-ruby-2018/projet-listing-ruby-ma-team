@@ -12,6 +12,7 @@ class Account::ProfileController < Account::AccountController
     end
   end
 
+
   def update_password
     @user = current_user
     if @user.update(user_password_params)
