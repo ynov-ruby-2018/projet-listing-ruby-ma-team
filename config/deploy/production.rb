@@ -10,6 +10,8 @@
 server "h3r0x.ovh", user: "deploy", roles: %w{app db web}, port: 2301, :primary => true
 set :deploy_to, "/var/www/html/listings"
 
+set :passenger_restart_with_touch, true
+
 # role-based syntax
 # ==================
 
