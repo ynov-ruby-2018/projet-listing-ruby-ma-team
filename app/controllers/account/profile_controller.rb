@@ -13,6 +13,7 @@ class Account::ProfileController < Account::AccountController
     end
   end
 
+
   def update_password
     @user = current_user
     if @user.update(user_password_params)
@@ -20,8 +21,8 @@ class Account::ProfileController < Account::AccountController
       bypass_sign_in(@user)
     else
       flash[:notice] = t('devise.passwords.updated_not_active')
-      redirect_to action: "index"
     end
+    redirect_to action: "index"
   end
 
   private
