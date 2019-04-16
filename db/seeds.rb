@@ -11,10 +11,6 @@
 category = Category.create({name: 'Technology'})
 category_2 = Category.create({name: 'Food'})
 
-
-
-
-
 adrien = User.create!(
                {
                    firstname: 'Adrien',

@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :index
   has_many :announcements
-  validates :auth_token, uniqueness: true
+  #validates :auth_token, uniqueness: true
 
   def generate_token
     self.auth_token = SecureRandom.uuid
