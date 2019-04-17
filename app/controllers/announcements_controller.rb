@@ -1,5 +1,5 @@
 class AnnouncementsController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @announcements = Announcement.my_search(params[:search],params[:category_id]);
