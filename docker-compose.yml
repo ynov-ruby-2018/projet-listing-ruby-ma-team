@@ -10,3 +10,10 @@ services:
       - .:/data/app
     ports:
       - 3000:3000
+    links:
+      - mailcatcher
+
+  mailcatcher:
+    build: .docker/mailcatcher
+    ports:
+      - 1080:1080
