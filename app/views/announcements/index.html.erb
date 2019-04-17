@@ -29,6 +29,6 @@
     </div>
   </div>
   <% if user_signed_in? %>
-    <%= render partial: 'contact', locals: {item: item} %>
+    <%= render partial: 'contact', locals: {item: item, message: @message} %>
   <% end %>
 <% end %>
