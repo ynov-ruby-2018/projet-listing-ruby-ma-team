@@ -21,7 +21,7 @@
         <div class="price"><%= item.price %> €</div>
         <br>
         <% if user_signed_in? %>
-          <button class="button is-primary" data-target="<%= item.id %>"><%= t('announcements.contact') %></button>
+          <button class="button is-primary contact-modal-toggle" data-target="modal-<%= item.id %>"><%= t('announcements.contact') %></button>
         <% else %>
           <a class="button is-primary" href="<%= url_for(action: 'new', controller: 'devise/sessions') %>" data-target="<%= item.id %>"><%= t('announcements.contact') %></a>
         <% end %>
@@ -29,12 +29,6 @@
     </div>
   </div>
   <% if user_signed_in? %>
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content" id="modal">
-        <!-- Any other Bulma elements you want -->
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
-    </div>
+    <%= render partial: 'contact', locals: {item: item} %>
   <% end %>
 <% end %>
