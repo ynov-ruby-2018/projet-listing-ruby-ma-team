@@ -19,6 +19,8 @@ fr:
   message:
     create: "Envoyer mon message"
     success: "Votre message a été envoyé"
+    failure: "Aucun message n'a été envoyé"
+
   login:
     title: "Connexion"
     forgot: "Mot de passe oublié ?"

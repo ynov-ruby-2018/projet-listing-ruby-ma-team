@@ -19,6 +19,7 @@ en:
   message:
     create: "Send my message"
     success: "Your message has been sent"
+    failure: "No message has been sent"
   login:
     title: "Log in"
     forgot: "Forgot your password ?"
