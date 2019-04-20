@@ -1,0 +1,21 @@
+<div class="modal" id="modal-<%= item.id %>">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <h1> Contacter le vendeur </h1>
+    <%= form_for message, url: {action: "create", controller: '/messages'}, html: {class: "nifty_form"} do |f| %>
+      <div class="field">
+        <%= f.label :content %>
+        <div class="control">
+          <%= f.text_area :content , class: 'input'%>
+        </div>
+      </div>
+      <%= f.hidden_field(:announcement_id, :value => item.id) %>
+  <%= f.submit t('message.create'), class: 'button is-primary'%>
+
+    <% end %>
+    <!-- Any other Bulma elements you want -->
+  </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>

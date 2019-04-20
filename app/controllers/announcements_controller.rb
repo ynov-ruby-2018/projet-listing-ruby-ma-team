@@ -1,8 +1,9 @@
 class AnnouncementsController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @announcements = Announcement.my_search(params[:search],params[:category_id]);
+    @message = Message.new
   end
 
   def new
@@ -33,6 +34,7 @@ class AnnouncementsController < ApplicationController
     redirect_to announcements_path
   end
 
+  private
   def announcement_params
     params.require(:announcement).permit(:title,:description,:price,:category_id)
   end

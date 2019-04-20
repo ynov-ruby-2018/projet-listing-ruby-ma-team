@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
   <head>
     <title>ProjetListingRuby</title>
     <%= csrf_meta_tags %>
@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag  params[:controller], 'data-turbolinks-track' => 'reload' %>
   </head>
   <body>
     <section class="<%= 'hero' if controller_name == 'home' %> is-fullheight <%= controller_name %>">
       <div class="hero-head">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
           <div class="container">
             <div class="navbar-brand">
               <a class="navbar-item" href="<%= root_path %>">

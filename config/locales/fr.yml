@@ -16,6 +16,10 @@ fr:
     image: "Illustration"
     category: "Catégorie"
     price: "Prix"
+  message:
+    create: "Envoyer mon message"
+    success: "Votre message a été envoyé"
+    failure: "Aucun message n'a été envoyé"
 
   login:
     title: "Connexion"
