@@ -3,17 +3,17 @@
     <ul>
       <li class="<%= 'is-active' if controller_name == 'profile' %>">
         <a href="<%= url_for(action: 'index', controller: 'account/profile') %>">
-          <span>Mon profil</span>
+          <span><%= t('navbar.profile') %></span>
         </a>
       </li>
       <li class="<%= 'is-active' if controller_name == 'messages' %>">
         <a href="<%= url_for(action: 'index', controller: 'account/messages') %>">
-          <span>Mes messages</span>
+          <span><%= t('navbar.messages') %></span>
         </a>
       </li>
       <li class="<%= 'is-active' if controller_name == 'contacts' %>">
         <a href="<%= url_for(action: 'index', controller: 'account/contacts') %>">
-          <span>Mes contacts</span>
+          <span><%= t('navbar.contacts') %></span>
         </a>
       </li>
     </ul>

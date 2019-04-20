@@ -3,6 +3,9 @@ fr:
     home: "Accueil"
     login: "Connexion"
     create: "Créer mon listing"
+    profile: "Mon profil"
+    messages: "Mes messages"
+    contacts: "Mes contacts"
   home:
     welcome: "Vous allez trouver..."
     search:
