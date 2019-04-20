@@ -1,3 +1,4 @@
+<div class="<%= controller_name %>">
 <% @announcements.each do |item| %>
   <div class="card">
     <div class="card-image">
@@ -18,10 +19,18 @@
 
       <div class="content">
         <%= item.description %>
-        <div class="price" ><%= item.price %> €</div>
+        <div class="price"><%= item.price %> €</div>
         <br>
-        <button class="button is-primary"><%= t('announcements.contact') %></button>
+        <% if user_signed_in? %>
+          <button class="button is-primary contact-modal-toggle" data-target="modal-<%= item.id %>"><%= t('announcements.contact') %></button>
+        <% else %>
+          <a class="button is-primary" href="<%= url_for(action: 'new', controller: 'devise/sessions') %>" data-target="<%= item.id %>"><%= t('announcements.contact') %></a>
+        <% end %>
       </div>
     </div>
   </div>
+  <% if user_signed_in? %>
+    <%= render partial: 'contact', locals: {item: item, message: @message} %>
+  <% end %>
 <% end %>
+</div>
