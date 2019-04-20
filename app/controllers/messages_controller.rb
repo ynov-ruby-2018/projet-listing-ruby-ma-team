@@ -7,9 +7,11 @@ class MessagesController < ApplicationController
     else
       @message = Message.new(message_params)
       @message.user = current_user
-      @message.announcement
       @message.save!
-      flash[:notice] = t('message.success')
+
+      DefaultMailer.with(message: @message).notify_message.deliver_now
+
+      # flash[:notice] = t('message.success')
     end
     redirect_to announcements_path
   end
