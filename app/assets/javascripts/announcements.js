@@ -1,5 +1,8 @@
 console.log('ok');
+
 document.addEventListener("DOMContentLoaded", function(event) {
+    console.log('loaded');
+
     let elements = document.querySelectorAll('.contact-modal-toggle');
     elements.forEach(element => {
         element.addEventListener('click',openModalEventListener);
